@@ -31,7 +31,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: [build_images]
     steps:
-      - name: Auth
+      - name: Create key.pem
         run: echo "${{ secrets.SSH_KEY }}" | tr -d '\r' > key.pem
 
       - name: Auth
