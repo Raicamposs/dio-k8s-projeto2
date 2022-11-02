@@ -31,7 +31,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Auth
-        run: chmod 400 $SSH_KEY
+        run: chmod 400 ${{ secrets.SSH_KEY }}
 
       - name: Run deployment script
         run: ssh -o StrictHostKeyChecking=no -i ${{ secrets.SSH_KEY }} gcp@${{ secrets.SSH_SERVER }} "sudo rm -Rf ./kubernetes-projeto2-dio/ && sudo git clone https://github.com/Raicamposs/dio-k8s-projeto2.git && cd kubernetes-projeto2-dio && sudo chmod +x ./script.sh && ./script.sh"
